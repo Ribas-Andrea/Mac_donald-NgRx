@@ -1,0 +1,36 @@
+.champ-recherche {
+  display: flex;
+  gap: 2%;
+}
+
+.champ-recherche input {
+  box-sizing: border-box;
+  width: stretch;
+}
+
+.liste-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgb(255 255 255 / 75%);
+}
+
+.suggestion {
+  padding: 1%;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin: 2%;
+}
+
+.suggestion:hover {
+  background-color: #eeeeee;
+}
+
+small{
+  font-size: small;
+  color: red;
+}
