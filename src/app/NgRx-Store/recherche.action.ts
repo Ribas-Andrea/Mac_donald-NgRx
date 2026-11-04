@@ -15,10 +15,10 @@ export const selectionnerVille = createAction(
 
 export const chargerRestaurants = createAction(
   '[Recherche] Charger restaurants',
-  props<{ restaurants: string[];}>()
+  props<{ restaurants: ResultatNominatim[];}>()
 );
 
 export const selectionnerRestaurant = createAction(
   '[Affiche] Selectionner restaurant',
-  props<{ restaurantSelectionne: string;}>()
+  props<{ restaurantSelectionne: string; }>()
 );

@@ -5,6 +5,11 @@ export interface ResultatNominatim {
   display_name: string;
   name?: string;
   address: {
+    house_number?: string;
+    road?: string;
+    neighbourhood?: string;
+    suburb?: string;
+    quarter?: string;
     city?: string;
     town?: string;
     village?: string;

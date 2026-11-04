@@ -3,7 +3,8 @@ import { provideRouter } from '@angular/router';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { routes } from './app.routes';
-import { rechercheReducer } from './NgRx Store/recherche.reducer';
+import { rechercheReducer } from './NgRx-Store/recherche.reducer';
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
