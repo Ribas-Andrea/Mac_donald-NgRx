@@ -41,6 +41,8 @@ export class Carte {
       const lon: number = this.longitude();
 
       const restaurants = this.restaurants();
+      console.log('Restaurants NgRx :', restaurants);
+      console.log('Nombre de restaurants :', restaurants.length);
       this.marqueurs.forEach((marqueur) => {
         marqueur.remove();
       });
