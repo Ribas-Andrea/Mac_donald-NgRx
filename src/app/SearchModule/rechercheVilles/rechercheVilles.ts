@@ -58,14 +58,12 @@ export class RechercheVilles {
   @Output() villeRecherchee = new EventEmitter<RechercheVille>();
 
 
-// Le constructeur qui affiche la localisation de l'tilisateur : 
   constructor() {
     navigator.geolocation.getCurrentPosition((position) => {
       this.latitude.set(position.coords.latitude);
       this.longitude.set(position.coords.longitude);
     });
 
-    // Autocompletion des villes : 
     this._getVilleSelectionnee.valueChanges
     .pipe(
       debounceTime(300),
@@ -80,29 +78,23 @@ export class RechercheVilles {
     });
   }
 
-  // Recherche la ville lorsque le formulaire est envoyé : 
+
   chercherVilles() {
     this.isSubmited.set(true);
-    // Vérifie que le champ est valide : 
     if (this._getVilleSelectionnee.invalid){
       console.warn("Veuillez saisir une ville avant de lancer la recherche");
       return;
     }
 
-    // Mise en place de la recherche de la ville avec nominatim : 
     this.nominatim
     .rechercherVille(this._getVilleSelectionnee.value)
     .subscribe(
       (resultat: ResultatNominatim[]) => {
-      // On vérifie qu'un résultat existe : 
           if (resultat.length === 0) {
             return;
           }
-
-      // Récupération des coordonnées : 
-        // console.log(resultat[0]);
-        this.latitude.set(Number(resultat[0].lat)); // on ne vas pas changer
-        this.longitude.set(Number(resultat[0].lon)); // on ne vas pas changer
+        this.latitude.set(Number(resultat[0].lat));
+        this.longitude.set(Number(resultat[0].lon));
         this.villeRecherchee.emit({
           latitude: this.latitude(),
           longitude: this.longitude()
@@ -119,8 +111,6 @@ export class RechercheVilles {
       })
   }
 
-
-  // Selectionne une ville dans les propositions : 
   selectionnerVille(ville: ResultatNominatim) {
     this._getVilleSelectionnee.setValue(ville.display_name, { emitEvent: false });
     this.store.dispatch(
@@ -131,11 +121,8 @@ export class RechercheVilles {
     this.store.dispatch(
       chargerVilles({ villes: [] })
     );
- 
- 
   }
 
-// Construit le texte affiché dans les propositions : 
     libellePropositionsVilles(ville: ResultatNominatim): string {
     const adresse = ville.address;
     const nom = ville.name || '';

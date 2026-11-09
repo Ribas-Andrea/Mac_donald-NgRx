@@ -41,12 +41,10 @@ export class Carte {
       const lon: number = this.longitude();
 
       const restaurants = this.restaurants();
-      // Supprime les anciens marqueurs de la carte
       this.marqueurs.forEach((marqueur) => {
         marqueur.remove();
       });
 
-      // Vide le tableau des marqueurs
       this.marqueurs.length = 0;
 
       restaurants.forEach((restaurant) => {

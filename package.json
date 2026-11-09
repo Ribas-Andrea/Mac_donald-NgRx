@@ -1,5 +1,5 @@
 {
-  "name": "mac-donald-frontend-angular",
+  "name": "mac-donald-frontend-angular_ngrx",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "mac_donald_frontend_angular": {
+    "mac_donald_frontend_angular_ngrx": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/mac_donald_frontend_angular_ngrx",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -64,10 +65,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "mac_donald_frontend_angular:build:production"
+              "buildTarget": "mac_donald_frontend_angular_ngrx:build:production"
             },
             "development": {
-              "buildTarget": "mac_donald_frontend_angular:build:development"
+              "buildTarget": "mac_donald_frontend_angular_ngrx:build:development"
             }
           },
           "defaultConfiguration": "development"

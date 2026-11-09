@@ -49,18 +49,13 @@ export class RechercheRestaurants {
     });
   }
 
-
-  // Recherche des restaurants dans la ville : 
   chercherRestaurants(){
     this.nominatim
     .rechercherRestaurants(this.ville, this.latitude, this.longitude)
     .subscribe((restaurants) => {
-      // Enregistre la liste des retaurants : 
       this.store.dispatch(
         chargerRestaurants({ restaurants: restaurants })
       );
-
-      // Récupère le premier restaurant : 
       const restaurant = restaurants[0];
       if (restaurant) {
         this.restaurantLatitude.set(restaurant.lat);

@@ -16,7 +16,6 @@ export class Nominatim {
   }
 
   rechercherRestaurants(ville: string, latitude: number, longitude: number) {
-    // const url = `https://nominatim.openstreetmap.org/search?q=McDonald's,${ville}&format=json&limit=10`;
     const url = `https://nominatim.openstreetmap.org/search?q=McDonald's,${ville}&format=json&limit=20&addressdetails=1`;
 
     return this.http.get<any[]>(url, {
