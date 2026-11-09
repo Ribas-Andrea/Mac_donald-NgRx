@@ -1,7 +1,7 @@
 import { Component, effect, inject, input } from '@angular/core';
 import { LeafletDirective, LeafletLayersDirective } from '@bluehalo/ngx-leaflet';
 import { Store } from '@ngrx/store';
-import { latLng, Map, marker, tileLayer } from 'leaflet';
+import { Icon, icon, latLng, Map, marker, tileLayer } from 'leaflet';
 import { selectionnerRestaurant } from '../../NgRx-Store/recherche.action';
 import { afficheRestaurants } from '../../NgRx-Store/recherche.selectors';
 
@@ -55,10 +55,16 @@ export class Carte {
         const rue = numero + (adresse.road || '');
         const quartier = adresse.neighbourhood || adresse.suburb || adresse.quarter || '';
         const ville = adresse.city || adresse.town || adresse.municipality ||'';
+        const markerIcon = icon({
+        ...Icon.Default.prototype.options,
+        iconUrl: 'assets/marker-icon.png',
+        iconRetinaUrl: 'assets/marker-icon-2x.png',
+        shadowUrl: 'assets/marker-shadow.png',
+        });
         const marqueur = marker([
           Number(restaurant.lat),
           Number(restaurant.lon)
-        ]).bindPopup(`
+        ],{ icon:markerIcon}).bindPopup(`
             <div id="popupContent">
               <strong>${restaurant.name}</strong><br>
               ${rue} <br>
